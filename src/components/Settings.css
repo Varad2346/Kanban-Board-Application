@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.hidden {
+  display: none;
+}
+
+.settings {
+  position: fixed;
+  right: 3%;
+  background-color: white;
+  top: 10%;
+  width: 25rem;
+  height: 50vh;
+  padding: 10px 10px 10px 5px;
+  border: 1px solid #ddd;
+  z-index: 600;
+  box-shadow: 0px 0px 1px rgb(182, 178, 178);
+  /* border-radius: 0.5rem; */
+}
+
+.settings-one-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.125rem;
+  height: 58px;
+  /* padding: 16px; */
+  margin: 0px 16px 0px 16px;
+  border-bottom: 1px solid #ddd;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.settings-two-row {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.125rem;
+  /* height: 130px; */
+  /* padding: 25px 0px 1px 16px; */
+  margin: 0px 0px 0px 16px;
+  border-bottom: 1px solid #ddd;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  align-items: start;
+}
+
+.theme-radio-select {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-weight: 400;
+  font-size: 12px;
+  gap: 10px;
+}
+
+.radio-select {
+  padding: 5px 5px 5px 0px;
+  font-size: 16px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.settings-three-row {
+  font-size: 1.125rem;
+  height: 130px;
+  padding: 0px 0px 5px 16px;
+  margin: 0px 0px 0px 16px;
+  border-bottom: 1px solid #ddd;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.palette {
+  width: 95%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.theme-colors-h {
+  height: 40px;
+  margin: 10px 0px 0px 0px;
+  display: flex;
+}
+
+.blue {
+  background-color: #1868DB;
+}
+
+.red {
+  background-color: #333;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.pink {
+  background-color: rgb(136, 247, 136);
+}
+
+.purple {
+  background-color: purple;
+}
+
+.color {
+  border-radius: 50%;
+  margin: 2px 8px;
+  width: 40px;
+  height: 40px;
+}

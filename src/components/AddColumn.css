@@ -1,0 +1,65 @@
+.add-column-form {
+  padding: 1.25rem; /* 20px */
+  position: absolute;
+  width: 30rem; /* already rem */
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  border: 0.0625rem solid silver; /* 1px */
+  font-family: 'Montserrat', sans-serif;
+  z-index: 20;
+}
+
+.add-column-upper {
+  margin-bottom: 1.25rem; /* 20px */
+}
+
+.add-column-input {
+  width: 93%;
+  padding: 0.875rem; /* 14px */
+  font-size: 1rem; /* 16px */
+}
+
+.add-column-input:focus {
+  outline: none;
+}
+
+.add-column-lower {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9375rem; /* 15px */
+}
+
+.add-col-btn {
+  padding: 0.625rem 1.125rem; /* 10px 18px */
+  border: none;
+  border-radius: 0.5rem; /* 8px */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: 0.0625rem solid silver; /* 1px */
+}
+
+.add-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #27ae60;
+  transform: scale(1.03);
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.03);
+}
