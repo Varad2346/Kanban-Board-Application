@@ -1,0 +1,13 @@
+/* index.css or global styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+               'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5; /* optional, for contrast */
+  box-sizing: border-box;
+  /* padding: 0.1rem; */
+    background-color: #1868DB;
+
+}

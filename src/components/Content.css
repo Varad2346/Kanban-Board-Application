@@ -1,0 +1,14 @@
+.content-container{
+    flex: 4;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+/* .content-two{
+    width: 100%;
+    overflow-x: scroll;
+    height: 91%;
+    background-color: white;
+} */
