@@ -3,7 +3,7 @@ import "./MainBar.css";
 import { MyContext } from "../store/MyContext";
 
 const MainBar = () => {
-  const { userDetails, setSelectedProjectId } = useContext(MyContext);
+  const { userDetails, setSelectedProjectId ,shouldRefresh,setShouldRefresh} = useContext(MyContext);
 
   const [projectList, setProjectList] = useState([]);
   const [newProjectInput, setNewProjectInput] = useState({
@@ -36,7 +36,7 @@ const MainBar = () => {
 
       fetchProjects();
     }
-  }, [userDetails]);
+  }, [userDetails,shouldRefresh]);
 
   const handleSubmit = async () => {
     try {

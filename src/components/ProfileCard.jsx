@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ProfileCard.css"
+import "./ProfileCard.css";
+import { MyContext } from "../store/MyContext";
+import { jwtDecode } from "jwt-decode";
 
-const ProfileCard = ({ visible, toggle,name,email,id }) => {
+const ProfileCard = ({ visible, id }) => {
+
+  const { shouldRefresh } = useContext(MyContext);
+
+  const [userDetails, setUserDetails] = useState("");
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decoded = jwtDecode(token);
+      setUserDetails(() => decoded.user);
+     
+    }
+  }, [shouldRefresh]);
 
   const navigate = useNavigate();
   const deleteProfile = async () => {
     try {
-      const response=await fetch(`http://localhost:3000/api/auth/delete`, {
+      const response = await fetch(`http://localhost:3000/api/auth/delete`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          userId:id,
+          userId: id,
         }),
       });
-     console.log(id,response);
-     navigate("/register")
+      console.log(id, response);
+      navigate("/register");
     } catch (err) {
       console.error("Error updating backend:", err);
     }
@@ -41,8 +55,8 @@ const ProfileCard = ({ visible, toggle,name,email,id }) => {
           />
         </div>
         <div className="profile-details">
-          <span>{name}</span>
-          <span>{email}</span>
+          <span>{userDetails?.name}</span>
+          <span>{userDetails?.email}</span>
         </div>
       </div>
 
@@ -52,7 +66,9 @@ const ProfileCard = ({ visible, toggle,name,email,id }) => {
             class="fa-solid fa-pen-to-square"
             style={{ marginLeft: "20px", fontWeight: "100" }}
           ></i>
-          <span style={{ marginLeft: "20px" }} onClick={deleteProfile}>Delete Profile</span>
+          <span style={{ marginLeft: "20px" }} onClick={deleteProfile}>
+            Delete Profile
+          </span>
         </div>
         <div className="profile-option">
           <i
@@ -61,7 +77,13 @@ const ProfileCard = ({ visible, toggle,name,email,id }) => {
           ></i>
           <span style={{ marginLeft: "20px" }}>Account settings</span>
         </div>
-        <div className="profile-option" onClick={() =>{ localStorage.removeItem("token"); navigate("/")}}>
+        <div
+          className="profile-option"
+          onClick={() => {
+            localStorage.removeItem("token");
+            navigate("/");
+          }}  
+        >
           <i
             class="fa-solid fa-right-from-bracket"
             style={{ marginLeft: "20px" }}

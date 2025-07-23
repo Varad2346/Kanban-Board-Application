@@ -7,7 +7,7 @@ export const MyProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState("");
   const [userDetails, setUserDetails] = useState("");
   const [selectedProjectId, setSelectedProjectId] = useState("");
-  const [shouldRefresh, setShouldRefresh] = useState(false);
+  const [shouldRefresh, setShouldRefresh] = useState(0);
   const [colAdded, setcolAdded] = useState(0);
   const [rowAdded, setRowAdded] = useState(0);
   useEffect(() => {
@@ -15,6 +15,7 @@ export const MyProvider = ({ children }) => {
     if (token) {
       const decoded = jwtDecode(token);
       setUserDetails(() => decoded.user);
+      setShouldRefresh((prev)=>prev+1);
     }
   }, []);
 

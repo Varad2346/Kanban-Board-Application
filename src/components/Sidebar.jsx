@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import Settings from "./Settings";
 
 const SideBar = () => {
-  const [showSettings, setShowSettings] = useState(true);
+  const [showSettings, setShowSettings] = useState(false);
   const handleShowSettings = () => {
     setShowSettings((prev) => !prev);
     setRotate((prev) => !prev);

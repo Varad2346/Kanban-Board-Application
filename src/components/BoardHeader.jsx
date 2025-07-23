@@ -6,7 +6,7 @@ import { MyContext } from "../store/MyContext";
 const BoardHeader = () => {
   
   const [profileVisible, setProfileVisible] = useState(false);
-  const {userDetails}=useContext(MyContext);
+  const {userDetails,shouldRefresh}=useContext(MyContext);
   return (
     <div className="board-nav">
       <div className="board-heading"><span>Kanban Board</span></div>

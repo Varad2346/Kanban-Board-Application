@@ -1,6 +1,6 @@
 .board-nav{
     display: flex;
-    border-bottom: 0.7px solid rgb(224, 220, 220);
+    /* border-bottom: 0.7px solid rgb(224, 220, 220); */
     z-index: 300;
     background-color: var(--theme-color);
     justify-content: space-between;
