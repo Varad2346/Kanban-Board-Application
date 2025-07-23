@@ -62,7 +62,7 @@ const ProfileCard = ({ visible, id }) => {
         <div className="profile-option">
           <i
             class="fa-solid fa-pen-to-square"
-            style={{ marginLeft: "20px", fontWeight: "100" }}
+            style={{ marginLeft: "20px", fontWeight: "100", color:"var(--theme-color)" }}
           ></i>
           <span style={{ marginLeft: "20px" }} onClick={deleteProfile}>
             Delete Profile
@@ -71,7 +71,7 @@ const ProfileCard = ({ visible, id }) => {
         <div className="profile-option">
           <i
             class="fa-solid fa-pen-to-square"
-            style={{ marginLeft: "20px", fontWeight: "100" }}
+            style={{ marginLeft: "20px", color:"var(--theme-color)",fontWeight: "100" }}
           ></i>
           <span style={{ marginLeft: "20px" }}>Account settings</span>
         </div>
@@ -84,7 +84,7 @@ const ProfileCard = ({ visible, id }) => {
         >
           <i
             class="fa-solid fa-right-from-bracket"
-            style={{ marginLeft: "20px" }}
+            style={{ marginLeft: "20px",color:"var(--theme-color)" }}
           ></i>
           <span style={{ marginLeft: "20px" }}>Log out</span>
         </div>

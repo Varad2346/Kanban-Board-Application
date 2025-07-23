@@ -9,7 +9,7 @@ const BoardHeader = () => {
   const {userDetails}=useContext(MyContext);
   return (
     <div className="board-nav">
-      <div className="board-heading"><span>Kanban Board</span></div>
+      <div className="board-heading"><span></span></div>
       <div className="board-options">
         <span className="board-header-option" style={{color:"white"}}>
         <i class="fa-solid fa-bell"></i>

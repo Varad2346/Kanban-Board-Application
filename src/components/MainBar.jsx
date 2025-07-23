@@ -3,7 +3,7 @@ import "./MainBar.css";
 import { MyContext } from "../store/MyContext";
 
 const MainBar = () => {
-  const { userDetails, setSelectedProjectId ,shouldRefresh,setShouldRefresh} = useContext(MyContext);
+  const { userDetails,selectedProjectId, setSelectedProjectId ,shouldRefresh,setShouldRefresh} = useContext(MyContext);
 
   const [projectList, setProjectList] = useState([]);
   const [newProjectInput, setNewProjectInput] = useState({
@@ -98,7 +98,7 @@ const MainBar = () => {
         </div>
       </div>
       <div className="project-search">
-        <i className="fa-solid fa-search"></i>
+        <i className="fa-solid fa-search" style={{color:"var(--theme-color)"}}></i>
         <input
           type="text"
           value={searchTerm}
@@ -109,7 +109,10 @@ const MainBar = () => {
         {filteredProjects?.map((project) => (
           <div
             key={project._id}
-            className="project-card"
+            className={`project-card ${
+      project._id === selectedProjectId ? "selected" : ""
+    }`}
+            
             onClick={() => setSelectedProjectId(project._id)}
           >
             <div className="project-title">{project.projectName}</div>
@@ -130,6 +133,7 @@ const MainBar = () => {
               name="projectName"
               id="title"
               value={newProjectInput.projectName}
+              
               onChange={(e) =>
                 setNewProjectInput({
                   ...newProjectInput,

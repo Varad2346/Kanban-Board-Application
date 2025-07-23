@@ -6,7 +6,7 @@ const SideBar = () => {
   const [showSettings, setShowSettings] = useState(false);
   const handleShowSettings = () => {
     setShowSettings((prev) => !prev);
-    setRotate((prev) => !prev);
+    // setRotate((prev) => !prev);
   };
 
   const [rotate, setRotate] = useState(true);

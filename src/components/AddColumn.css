@@ -13,6 +13,8 @@
   z-index: 20;
   border-radius: 0.5rem;
   transition: all 2s ease-in-out;
+  /* border: 1px solid; */
+  /* border-color: var(--theme-color); */
 }
 
 .add-column-upper {
