@@ -1,17 +1,24 @@
 import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
-import "./App.css"
 import Home from "./Pages/Home";
+import "./App.css";
+import { SnackbarProvider } from "notistack";
+
 const App = () => {
   return (
-  
-    <Routes>
-      <Route path="/" element={<Login />}></Route>
-      <Route path="/register" element={<SignUp />}></Route>
-      <Route path='/home' element={<Home/>}></Route> 
-    </Routes>
+    <SnackbarProvider
+      maxSnack={3}
+      autoHideDuration={3000}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+    >
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </SnackbarProvider>
   );
 };
 

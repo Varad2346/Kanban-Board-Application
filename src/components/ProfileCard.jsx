@@ -5,7 +5,6 @@ import { MyContext } from "../store/MyContext";
 import { jwtDecode } from "jwt-decode";
 
 const ProfileCard = ({ visible, id }) => {
-
   const { shouldRefresh } = useContext(MyContext);
 
   const [userDetails, setUserDetails] = useState("");
@@ -14,7 +13,6 @@ const ProfileCard = ({ visible, id }) => {
     if (token) {
       const decoded = jwtDecode(token);
       setUserDetails(() => decoded.user);
-     
     }
   }, [shouldRefresh]);
 
@@ -35,9 +33,9 @@ const ProfileCard = ({ visible, id }) => {
     }
   };
 
-  if (!visible) return null;
+  // if (!visible) return null;
   return (
-    <div className="profile-card">
+    <div className={`profile-card ${visible ? "show" : ""}`}>
       <div className="profile-card-one" onClick={console.log("click")}>
         <div
           style={{
@@ -82,7 +80,7 @@ const ProfileCard = ({ visible, id }) => {
           onClick={() => {
             localStorage.removeItem("token");
             navigate("/");
-          }}  
+          }}
         >
           <i
             class="fa-solid fa-right-from-bracket"

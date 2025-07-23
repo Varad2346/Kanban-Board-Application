@@ -115,7 +115,7 @@ const MainBar = () => {
             <div className="project-title">{project.projectName}</div>
             <div className="project-domain">{project.Domain}</div>
             <div className="project-settings">
-              <i class="fa-solid fa-caret-down"></i>
+              <i class="fa-solid fa-caret-down" style={{color:"var(--theme-color)"}}></i>
             </div>
           </div>
         ))}

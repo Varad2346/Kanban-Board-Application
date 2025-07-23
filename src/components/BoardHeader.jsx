@@ -6,7 +6,7 @@ import { MyContext } from "../store/MyContext";
 const BoardHeader = () => {
   
   const [profileVisible, setProfileVisible] = useState(false);
-  const {userDetails,shouldRefresh}=useContext(MyContext);
+  const {userDetails}=useContext(MyContext);
   return (
     <div className="board-nav">
       <div className="board-heading"><span>Kanban Board</span></div>
@@ -28,7 +28,6 @@ const BoardHeader = () => {
           />
         </span>
         {console.log(userDetails)}
-        {/* <ProfileCar/> */}
         <ProfileCard visible={profileVisible} id={userDetails._id} name={userDetails?.name} email={userDetails?.email} /> 
       </div>
     </div>

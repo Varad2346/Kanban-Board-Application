@@ -1,26 +1,29 @@
 .add-column-form {
-  padding: 1.25rem; /* 20px */
+  padding: 1.25rem; 
   position: absolute;
-  width: 30rem; /* already rem */
+  width: 30rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -25%);
-  border: 0.0625rem solid silver; /* 1px */
+  border: 0.0625rem solid var(--theme-color);
   font-family: 'Montserrat', sans-serif;
   z-index: 20;
+  border-radius: 0.5rem;
+  transition: all 2s ease-in-out;
 }
 
 .add-column-upper {
-  margin-bottom: 1.25rem; /* 20px */
+  margin-bottom: 1.25rem;
 }
 
 .add-column-input {
   width: 93%;
-  padding: 0.875rem; /* 14px */
-  font-size: 1rem; /* 16px */
+  padding: 0.875rem;
+  font-size: 1rem; 
+  
 }
 
 .add-column-input:focus {
@@ -30,36 +33,19 @@
 .add-column-lower {
   display: flex;
   justify-content: flex-end;
-  gap: 0.9375rem; /* 15px */
+  gap: 0.9375rem;
 }
 
-.add-col-btn {
-  padding: 0.625rem 1.125rem; /* 10px 18px */
+.add-col-btn ,.add-col-cancel{
+  padding: 0.625rem 1.125rem; 
   border: none;
-  border-radius: 0.5rem; /* 8px */
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem; 
   font-weight: 500;
   cursor: pointer;
+  background-color: var(--theme-color);
   transition: background-color 0.2s ease, transform 0.1s ease;
-  border: 0.0625rem solid silver; /* 1px */
-}
-
-.add-btn {
-  background-color: #2ecc71;
   color: white;
+  /* font-weight: 800; */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.add-btn:hover {
-  background-color: #27ae60;
-  transform: scale(1.03);
-}
-
-.cancel-btn {
-  background-color: #e74c3c;
-  color: white;
-}
-
-.cancel-btn:hover {
-  background-color: #c0392b;
-  transform: scale(1.03);
-}

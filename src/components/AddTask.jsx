@@ -7,7 +7,7 @@ const AddTask = ({ id, toggle }) => {
   const [dueDate, setDueDate] = useState("");
   const [assignee, setAssignee] = useState("");
   const [file, setFile] = useState(null);
-  const { rowAdded,setRowAdded } = useContext(MyContext);
+  const { setRowAdded } = useContext(MyContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const AddTask = ({ id, toggle }) => {
       const data = await response.json();
       if (data.success) {
         setRowAdded((prev)=>prev+1);
-        toggle(); // Close the form
+        toggle(); 
       } else {
         throw new Error(data.message || "Task creation failed");
       }

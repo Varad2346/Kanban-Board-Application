@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import {  useSnackbar } from 'notistack';
 
 const Login = () => {
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -14,7 +17,6 @@ const Login = () => {
     e.preventDefault();
     try {
       const { email, password } = formData;
-      console.log(email, password);
       const response = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: {
@@ -24,6 +26,7 @@ const Login = () => {
       });
       const data = await response.json();
       if (data.success) {
+        enqueueSnackbar("Login successful!", { variant: "success" });
         localStorage.setItem("token", data.token);
         navigate("/home");
       } else {

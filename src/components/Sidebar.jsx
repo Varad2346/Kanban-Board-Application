@@ -16,20 +16,6 @@ const SideBar = () => {
         <span className="sidebar-top-span" title="logo">
           <img src="./vite.svg" alt="" />
         </span>
-        {/* <span
-          className="sidebar-top-span"
-          style={{ color: "white" }}
-          title="search"
-        >
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
-        <span
-          className="sidebar-top-span"
-          style={{ color: "white" }}
-          title="New project"
-        >
-          <i class="fa-solid fa-plus"></i>
-        </span> */}
       </div>
       <div className="sidebar-bottom">
         <span

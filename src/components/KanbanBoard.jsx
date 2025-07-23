@@ -9,7 +9,7 @@ import TaskModal from "./TaskModal";
 
 const KanbanBoard = () => {
   const [cols, setCols] = useState([]);
-  const { selectedProjectId, ref ,colAdded,rowAdded} = useContext(MyContext);
+  const { selectedProjectId, ref, colAdded, rowAdded } = useContext(MyContext);
 
   const [showForm, setShowForm] = useState(false);
   const [showCardForm, setCardForm] = useState(true);
@@ -28,8 +28,6 @@ const KanbanBoard = () => {
     setSelectedTask(null);
     setShowTaskModal(false);
   };
-
-  //
 
   const toggleFormVisible = (event) => {
     event.stopPropagation();
@@ -65,7 +63,7 @@ const KanbanBoard = () => {
     }
 
     getCols();
-  }, [selectedProjectId, ref,colAdded,rowAdded]); // trigger only when projId is updated
+  }, [selectedProjectId, ref, colAdded, rowAdded]); // trigger only when projId is updated
 
   const updateColumnTasks = async (columnId, tasks) => {
     try {
@@ -144,7 +142,9 @@ const KanbanBoard = () => {
                 <span>
                   {column?.title.toUpperCase()} {column?.tasks?.length}
                 </span>
-                <span style={{ marginRight: "10px", color: "var(--theme-color)" }}>
+                <span
+                  style={{ marginRight: "10px", color: "var(--theme-color)" }}
+                >
                   <i className="fa-solid fa-caret-down"></i>
                 </span>
               </div>
@@ -175,7 +175,6 @@ const KanbanBoard = () => {
                                 {task.task}
                               </div>
                               <div className="kanban-card-menu">
-                                {/* <i class="fa-solid fa-ellipsis"></i> */}
                                 <span>
                                   <i className="fa-solid fa-trash"></i>
                                 </span>
@@ -192,7 +191,7 @@ const KanbanBoard = () => {
                                     style={{ color: "var(--theme-color)" }}
                                   ></i>
                                 </span>{" "}
-                                KAN {index} 
+                                KAN {index}
                               </div>
                               <img
                                 src="./user_icon.png"
@@ -233,7 +232,12 @@ const KanbanBoard = () => {
             onClick={toggleFormVisible}
           ></i>
 
-          {showForm && <AddColumn visible={toggleFormVisible} />}
+          {selectedProjectId ? (
+             showForm && <AddColumn visible={toggleFormVisible} />
+          ) : (
+            <div className="project-select-popup">No Project Selected!</div>
+          )}
+          {/* {showForm && selectedProjectId && <AddColumn visible={toggleFormVisible} />} */}
           {showTaskModal && selectedTask && (
             <TaskModal task={selectedTask} onClose={closeTaskModal} />
           )}

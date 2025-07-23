@@ -3,8 +3,11 @@ import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-
-    const [formData, setFormData] = useState({ email: "", password: "",name:"" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,14 +17,14 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { name,email, password } = formData;
-      console.log(name,email, password);
+      const { name, email, password } = formData;
+      console.log(name, email, password);
       const response = await fetch("http://localhost:3000/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({name, email, password }),
+        body: JSON.stringify({ name, email, password }),
       });
       const data = await response.json();
       if (data.success) {
@@ -62,7 +65,7 @@ const SignUp = () => {
                 id="email"
                 name="email"
                 className="login-input"
-                  value={formData.email}
+                value={formData.email}
                 onChange={handleChange}
                 required
               />
@@ -74,13 +77,20 @@ const SignUp = () => {
                 id="password"
                 name="password"
                 className="login-input"
-                  value={formData.password}
+                value={formData.password}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="login-show-password">
-              <input type="checkbox" className="password-checkbox" />
+              <input
+                type="checkbox"
+                className="password-checkbox"
+                onChange={() => {
+                  let input = document.getElementById("password");
+                  input.type = input.type == "password" ? "text" : "password";
+                }}
+              />
               <span>Show Password</span>
             </div>
             <div className="login-submit">

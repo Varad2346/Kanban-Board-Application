@@ -1,15 +1,17 @@
 import React, { useContext, useState } from "react";
 import "./AddColumn.css";
 import { MyContext } from "../store/MyContext";
+import { useSnackbar } from 'notistack';
 
 const AddColumn = ({ visible }) => {
+    const { enqueueSnackbar } = useSnackbar();
+
   const [addCol, setAddCol] = useState("");
-  const { selectedProjectId, setRef,colAdded,setcolAdded } = useContext(MyContext);
+  const { selectedProjectId,setcolAdded } = useContext(MyContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!addCol.trim()) return;
-
     try {
       const response = await fetch(`http://localhost:3000/api/column/new/${selectedProjectId}`, {
         method: "POST",
@@ -19,10 +21,12 @@ const AddColumn = ({ visible }) => {
 
       const data = await response.json();
       if (data.success) {
+                enqueueSnackbar("Column Added Sucessfully!", { variant: "success" });
+
         setcolAdded((prev)=>prev+1);
         setAddCol("");
-        setRef((prev) => !prev);
         visible(); // call to close
+
       } else {
         throw new Error("Could not create column");
       }
@@ -46,10 +50,10 @@ const AddColumn = ({ visible }) => {
         </div>
         <div className="add-column-lower">
           <button type="submit" className="add-col-btn add-col-right" title="Add Column">
-            <i className="fa-solid fa-arrow-right"></i>
+         Submit
           </button>
-          <button type="button" className="add-col-btn add-col-wrong" title="Cancel" onClick={visible}>
-            <i className="fa-solid fa-xmark"></i>
+          <button type="button" className="add-col-cancel add-col-wrong" title="Cancel" onClick={visible}>
+            Cancel
           </button>
         </div>
       </form>
