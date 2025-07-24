@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import {  useSnackbar } from 'notistack';
+import { MyContext } from "../store/MyContext";
 
 const Login = () => {
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { setAuthToken } = useContext(MyContext);
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -27,8 +29,10 @@ const Login = () => {
       });
       const data = await response.json();
       if (data.success) {
+        localStorage.removeItem("token");
         enqueueSnackbar("Login successful!", { variant: "success" });
         localStorage.setItem("token", data.token);
+        setAuthToken(data.token);
         navigate("/home");
       } else {
         throw new Error("Invalid Credentials");
@@ -39,7 +43,6 @@ const Login = () => {
   };
   return (
     <>
-      <div className="project-heading">Kanban Application</div>
       <div className="login-container">
         <form className="login-content" onSubmit={handleSubmit}>
           <div className="login-header" style={{ textAlign: "center" }}>
@@ -56,6 +59,7 @@ const Login = () => {
                 className="login-input"
                 onChange={handleChange}
                 required
+                autoComplete="off"
               />
             </div>
             <div className="login-password">

@@ -209,6 +209,7 @@ const KanbanBoard = () => {
                         <div
                           className="task-create-btn"
                           onClick={toggleCardForm}
+                          title="Add-Task"
                         >
                           <i
                             className="fa-solid fa-plus"
@@ -230,6 +231,7 @@ const KanbanBoard = () => {
             class="fa-solid fa-plus"
             style={{ fontWeight: "100" }}
             onClick={toggleFormVisible}
+            title="Add Column"
           ></i>
 
           {selectedProjectId ? (

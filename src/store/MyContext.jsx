@@ -17,7 +17,7 @@ export const MyProvider = ({ children }) => {
       setUserDetails(() => decoded.user);
       setShouldRefresh((prev)=>prev+1);
     }
-  }, []);
+  }, [authToken]);
 
   return (
    <MyContext.Provider value={{
@@ -30,7 +30,7 @@ export const MyProvider = ({ children }) => {
   colAdded,
   setcolAdded,
   rowAdded,
-  setRowAdded
+  setRowAdded,
 }}>
       {children}
     </MyContext.Provider>
