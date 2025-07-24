@@ -1,1 +1,1 @@
-![Demo](.src/assets/demo.gif)
+![Demo](./demo.gif)
