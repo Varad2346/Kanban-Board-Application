@@ -1,1 +1,1 @@
-![Demo](./demo.gif)
+<img src="/vite.svg" alt="Demo" width="600"/>
